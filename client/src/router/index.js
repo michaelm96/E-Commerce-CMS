@@ -59,7 +59,7 @@ router.beforeEach((to, from, next) => {
   if ((to.name === 'login' || to.name === 'register') && localStorage.getItem('access_token')) {
     next({ name: 'product' });
   } else if (to.name !== 'login' && to.name !== 'register' && !localStorage.getItem('access_token')) {
-    next({ name: 'login' });
+    next(from.path);
   } else if (to.path === '/' && localStorage.getItem('access_token')) {
     next({ name: 'product' });
   } else next();

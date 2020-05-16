@@ -56,4 +56,8 @@ export default {
     margin-left: 1rem;
     text-decoration: none;
 }
+b-sidebar[title]{
+  font-family: 'Cantata One', serif;
+  font-weight: 700px;
+}
 </style>

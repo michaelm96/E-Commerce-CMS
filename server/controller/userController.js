@@ -31,7 +31,6 @@ class UserController {
 
     static login(req, res, next) {
         const { email, password } = req.body
-        console.log(req.body);
         const error = { status: 400, name: 'Invalid Email/Password' }
 
         User.findOne({
@@ -48,7 +47,6 @@ class UserController {
                 }
             })
             .catch(err => {
-                console.log("ini error login");
                 next(err)
             })
     }

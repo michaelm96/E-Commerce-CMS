@@ -4,12 +4,24 @@
     <b-form @submit.prevent="onAdd" class="addForm">
       <label for="name">Name:</label>
       <input v-model="name" type="text" class="form-control" />
+      <p class="error" v-if="errMsg.name">
+          {{ this.errMsg.name }}
+      </p>
       <label for="image">Image url:</label>
       <input v-model="image" type="url" class="form-control" />
+      <p class="error" v-if="errMsg.image_url">
+          {{ this.errMsg.image_url }}
+      </p>
       <label for="price">Price:</label>
       <input v-model="price" type="number" class="form-control" />
+      <p class="error" v-if="errMsg.price">
+          {{ this.errMsg.price }}
+      </p>
       <label for="stock">Stock:</label>
       <input v-model="stock" type="number" class="form-control" />
+      <p class="error" v-if="errMsg.stock">
+          {{ this.errMsg.stock }}
+      </p>
       <br />
       <b-button variant="success" class="addButton" type="submit">Add Product</b-button>
     </b-form>
@@ -24,20 +36,22 @@ export default {
       image: null,
       price: null,
       stock: null,
+      errMsg: '',
     };
   },
   methods: {
-    onAdd() {
-      console.log(this.name);
-      this.$store.dispatch('toAddProduct', {
+    async onAdd() {
+      await this.$store.dispatch('toAddProduct', {
         name: this.name,
         image_url: this.image,
         price: this.price,
         stock: this.stock,
       });
-      setTimeout(() => {
+      if (this.$store.state.errMsg) {
+        this.errMsg = this.$store.state.errMsg;
+      } else {
         this.$router.push('/');
-      }, 300);
+      }
     },
   },
 };
@@ -52,5 +66,8 @@ export default {
 }
 .addButton {
   margin-left: 82%;
+}
+.error{
+    color: red;
 }
 </style>

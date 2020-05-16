@@ -9,6 +9,7 @@ export default new Vuex.Store({
     access_token: null,
     isLoggedIn: false,
     currentProduct: {},
+    errMsg: '',
   },
   mutations: {
     getProduct(state, payload) {
@@ -34,10 +35,17 @@ export default new Vuex.Store({
     getDataById(state, payload) {
       state.currentProduct = payload;
     },
+    error(state, payload) {
+      console.log(payload);
+      state.errMsg = payload.message;
+    },
+    cleanErrMsg(state) {
+      state.errMsg = '';
+    },
   },
   actions: {
     getProduct(context) {
-      fetch('http://localhost:3000/product', {
+      return fetch('http://localhost:3000/product', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -46,7 +54,6 @@ export default new Vuex.Store({
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           context.commit('getProduct', data);
         })
         .catch((err) => {
@@ -61,8 +68,7 @@ export default new Vuex.Store({
     },
 
     getAccessToken(context, payload) {
-      console.log(payload);
-      fetch('http://localhost:3000/login', {
+      return fetch('http://localhost:3000/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -71,16 +77,19 @@ export default new Vuex.Store({
       })
         .then((response) => response.json())
         .then((data) => {
-          context.commit('getAccessToken', data.access_token);
-          console.log(this.state.access_token);
+          if (!data.errorCode) {
+            context.commit('getAccessToken', data.access_token);
+            context.commit('cleanErrMsg');
+          } else {
+            context.commit('error', data);
+          }
         })
         .catch((err) => {
           console.log(err);
         });
     },
     toRegister(context, payload) {
-      console.log(payload);
-      fetch('http://localhost:3000/register', {
+      return fetch('http://localhost:3000/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,15 +98,19 @@ export default new Vuex.Store({
       })
         .then((response) => response.json())
         .then((data) => {
-          context.commit('toRegister', data.access_token);
+          if (!data.errorCode) {
+            context.commit('toRegister', data.access_token);
+            context.commit('cleanErrMsg');
+          } else {
+            context.commit('error', data);
+          }
         })
         .catch((err) => {
           console.log(err);
         });
     },
     toAddProduct(context, payload) {
-      console.log(payload);
-      fetch('http://localhost:3000/product', {
+      return fetch('http://localhost:3000/product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -107,15 +120,18 @@ export default new Vuex.Store({
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          if (!data.errorCode) {
+            context.commit('cleanErrMsg');
+          } else {
+            context.commit('error', data);
+          }
         })
         .catch((err) => {
           console.log(err);
         });
     },
     deleteProduct(context, payload) {
-      console.log(payload);
-      fetch(`http://localhost:3000/product/${payload.id}`, {
+      return fetch(`http://localhost:3000/product/${payload.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -123,8 +139,7 @@ export default new Vuex.Store({
         },
       })
         .then((response) => response.json())
-        .then((data) => {
-          console.log(data);
+        .then(() => {
           context.commit('deleteProduct', payload);
         })
         .catch((err) => {
@@ -132,7 +147,7 @@ export default new Vuex.Store({
         });
     },
     getDataById(context, payload) {
-      fetch(`http://localhost:3000/product/${payload.id}`, {
+      return fetch(`http://localhost:3000/product/${payload.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -141,7 +156,6 @@ export default new Vuex.Store({
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
           context.commit('getDataById', data);
         })
         .catch((err) => {
@@ -149,8 +163,7 @@ export default new Vuex.Store({
         });
     },
     updateProduct(context, payload) {
-      console.log(payload);
-      fetch(`http://localhost:3000/product/${payload.id}`, {
+      return fetch(`http://localhost:3000/product/${payload.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -160,7 +173,11 @@ export default new Vuex.Store({
       })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          if (!data.errorCode) {
+            context.commit('cleanErrMsg');
+          } else {
+            context.commit('error', data);
+          }
         })
         .catch((err) => {
           console.log(err);

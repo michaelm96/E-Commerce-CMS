@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="table-responsive">
     <table class="table table-bordered" v-if="!editTable">
       <thead>
         <tr>
@@ -42,3 +42,7 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+
+</style>

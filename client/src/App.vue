@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div id="app" class="container">
     <h1 class="brand">M96</h1>
     <navbar id="nav" v-if="this.$store.state.isLoggedIn" />
     <router-view></router-view>
@@ -35,6 +35,8 @@ export default {
 
 .brand {
   text-align: center;
+  font-family: 'Cantata One', serif;
+  font-weight: 700px;
 }
 
 #nav {

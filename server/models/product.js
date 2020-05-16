@@ -1,55 +1,69 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
-  const Product = sequelize.define('Product', {
+  const Sequelize = sequelize.Sequelize
+  const Model = Sequelize.Model
+
+  class Product extends Model {}
+
+  Product.init({
     name: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
         notEmpty: {
+          msg: "Product name should not be empty"
+        },
+        notNull: {
           msg: "Product name should not be empty"
         }
       }
     },
     image_url: {
       type: DataTypes.STRING,
+      allowNull: false,
       validate: {
-        notEmpty: {
-          msg: "Product image should not filled"
-        },
         isUrl: {
-          msg: "Product image not url type"
+          msg: "Product image not url type/ empty"
         },
+        notNull: {
+          msg: "Product image url should not be empty"
+        }
       }
     },
     price: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
-        isNumeric: {
-          msg: "price not in number format"
-        },
         isInt: {
-          msg: "price should be in integer form/ berbentuk bilangan bulat"
+          msg: "Price should be filled or should be in integer form/ berbentuk bilangan bulat"
         },
         min: {
           args: [1],
           msg: "Minimum price is Rp.1"
+        },
+        notNull: {
+          msg: "Price should not be empty"
         }
       }
     },
     stock: {
       type: DataTypes.INTEGER,
+      allowNull: false,
       validate: {
-        notEmpty: {
-          msg: "Product stock should be filled"
-        },
-        isNumeric: {
-          msg: "stock not in number format"
-        },
         isInt: {
-          msg: "stock should be in integer form/ berbentuk bilangan bulat"
+          msg: "Stock should be filled or should be in integer form/ berbentuk bilangan bulat"
+        },
+        notNull: {
+          msg: "Stock should not be empty"
+        },
+        min: {
+          args: [0],
+          msg: "Minimum stock is 0"
         },
       }
     },
-  }, {});
+  }, { sequelize });
+
   Product.associate = function (models) {
     // associations can be defined here
   };

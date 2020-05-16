@@ -3,7 +3,7 @@ const authorization = (req,res,next) => {
 
     if(role === "admin"){
         next()
-    }else{
+    } else {
         next({name : 'Forbidden Access'})
     }
 }

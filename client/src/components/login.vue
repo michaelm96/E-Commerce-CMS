@@ -1,5 +1,6 @@
 <template>
   <div>
+    <b-alert show variant="danger" v-if="errMsg">{{ this.errMsg.message }}</b-alert>
     <b-form @submit.prevent="onSubmit">
       <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
         <b-form-input id="input-1" v-model="email"
@@ -27,24 +28,19 @@ export default {
     return {
       email: '',
       password: '',
+      errMsg: '',
     };
   },
   methods: {
-    onSubmit() {
-      if (
-        this.email !== undefined
-        && this.email !== ''
-        && this.password !== undefined
-        && this.password !== ''
-      ) {
-        this.$store.dispatch('getAccessToken', {
-          email: this.email,
-          password: this.password,
-        });
-        setTimeout(() => {
-          this.$router.push('/');
-        }, 300);
+    async onSubmit() {
+      await this.$store.dispatch('getAccessToken', {
+        email: this.email,
+        password: this.password,
+      });
+      if (this.$store.state.errMsg) {
+        this.errMsg = this.$store.state.errMsg;
       }
+      this.$router.push('/');
     },
   },
 };
