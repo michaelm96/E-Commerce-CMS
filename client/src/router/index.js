@@ -56,10 +56,12 @@ const router = new VueRouter({
 });
 
 router.beforeEach((to, from, next) => {
-  if ((to.name === 'login' || to.name === 'register') && localStorage.getItem('access_token')) {
+  if (to.name !== 'login' && to.name !== 'register' && from.name === 'register' && !localStorage.getItem('access_token')) {
+    next({ name: 'register' });
+  } else if ((to.name === 'login' || to.name === 'register') && localStorage.getItem('access_token')) {
     next({ name: 'product' });
   } else if (to.name !== 'login' && to.name !== 'register' && !localStorage.getItem('access_token')) {
-    next(from.path);
+    next({ name: 'login' });
   } else if (to.path === '/' && localStorage.getItem('access_token')) {
     next({ name: 'product' });
   } else next();

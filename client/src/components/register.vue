@@ -1,5 +1,6 @@
 <template>
-  <div >
+  <div class="whiteTable">
+    <h1 class="title">Register</h1>
     <b-form @submit.prevent="onSubmit">
       <b-form-group id="input-group-2" label="Your Name:" label-for="input-2">
         <b-form-input id="input-2"
@@ -26,13 +27,14 @@
         <b-input type="password"
         id="text-password"
         v-model="form.password"
-        aria-describedby="password-help-block"></b-input>
+        aria-describedby="password-help-block"
+        placeholder="Enter Password"></b-input>
         <p class="error" v-if="errMsg.password">
           {{ this.errMsg.password }}
         </p>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary">Register</b-button>
     </b-form>
   </div>
 </template>
@@ -62,7 +64,15 @@ export default {
 </script>
 
 <style scoped>
-  .error{
+.error{
     color: red;
   }
+.whiteTable{
+  background-color: white;
+  opacity: 0.95;
+  padding: 1rem;
+}
+.title{
+  font-family: 'Cantata One', serif;
+}
 </style>

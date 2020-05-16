@@ -1,9 +1,9 @@
 <template>
-  <tr>
+  <tr class="fontStyle">
     <td>{{ index+1 }}</td>
     <td class="nameProduct">{{ item.name }}</td>
     <td class="imageUrlSize">{{ item.image_url }}</td>
-    <td>{{ item.price }}</td>
+    <td>Rp.{{ item.price }}</td>
     <td>{{ item.stock }}</td>
     <td class="buttonSpace">
       <router-link :to="{ path: `/product/${ item.id }/edit`}">
@@ -36,16 +36,19 @@ export default {
 
 <style scoped>
 .buttonSpace {
-  min-width: 3rem;
+  min-width: 5rem;
 }
 .spaceButtons{
   margin:  0.5rem;
 }
 .imageUrlSize{
-  max-width: 35rem;
+  max-width: 30rem;
   overflow: auto;
 }
 .nameProduct{
   max-width: 10rem;
+}
+.fontStyle{
+  font-family: 'Cantata One', serif;
 }
 </style>

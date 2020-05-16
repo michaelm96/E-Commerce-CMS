@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <b-alert show variant="danger" v-if="errMsg">{{ this.errMsg.message }}</b-alert>
+  <div class="whiteTable">
+    <h1 class="title">Login</h1>
+    <br>
+    <b-alert show variant="danger" v-if="errMsg">{{ this.errMsg }}</b-alert>
     <b-form @submit.prevent="onSubmit">
       <b-form-group id="input-group-1" label="Email address:" label-for="input-1">
         <b-form-input id="input-1" v-model="email"
@@ -14,10 +16,11 @@
           id="text-password"
           aria-describedby="password-help-block"
           v-model="password"
+          placeholder="Enter Password"
         ></b-input>
       </b-form-group>
 
-      <b-button type="submit" variant="primary">Submit</b-button>
+      <b-button type="submit" variant="primary">Login</b-button>
     </b-form>
   </div>
 </template>
@@ -45,3 +48,14 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.whiteTable {
+  background-color: white;
+  opacity: 0.95;
+  padding: 1rem;
+}
+.title{
+  font-family: 'Cantata One', serif;
+}
+</style>

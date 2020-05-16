@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "NODE_ENV=test jest --detectOpenHandles --runInBand --forceExit",
-    "createDBTest": "NODE_ENV=test sequelize db:create && NODE_ENV=test sequelize db:migrate"
+    "createDBTest": "NODE_ENV=test sequelize db:create && NODE_ENV=test sequelize db:migrate",
+    "start": "node app.js"
   },
   "keywords": [],
   "author": "",

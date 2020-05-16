@@ -107,7 +107,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.name", "Product name should not be empty")
@@ -130,7 +129,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.image_url", "Product image not url type/ empty")
@@ -153,7 +151,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Price should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -176,7 +173,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Minimum price is Rp.1")
@@ -199,7 +195,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Price should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -222,7 +217,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.stock", "Stock should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -245,7 +239,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.stock", "Stock should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -267,7 +260,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.name", "Product name should not be empty")
@@ -289,7 +281,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.image_url", "Product image url should not be empty")
@@ -311,7 +302,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Price should not be empty")
@@ -333,7 +323,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.stock", "Stock should not be empty")
@@ -440,7 +429,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.name", "Product name should not be empty")
@@ -463,7 +451,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.image_url", "Product image not url type/ empty")
@@ -486,7 +473,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Price should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -509,7 +495,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Minimum price is Rp.1")
@@ -532,7 +517,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Price should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -555,7 +539,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.stock", "Stock should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -578,7 +561,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.stock", "Stock should be filled or should be in integer form/ berbentuk bilangan bulat")
@@ -601,7 +583,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.name", "Product name should not be empty")
@@ -624,7 +605,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.image_url", "Product image url should not be empty")
@@ -647,7 +627,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.price", "Price should not be empty")
@@ -670,7 +649,6 @@ describe('Product Test', () => {
                 .then(response => {
                     const { body, status } = response
                     expect(status).toBe(400)
-                    console.log(body);
                     expect(body).toHaveProperty("errorCode", 'VALIDATION_ERROR')
                     expect(body).toHaveProperty("message")
                     expect(body).toHaveProperty("message.stock", "Stock should not be empty")

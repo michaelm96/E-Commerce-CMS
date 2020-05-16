@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="whiteTable">
   <h1 class="title">Add Product</h1>
     <b-form @submit.prevent="onAdd" class="addForm">
       <label for="name">Name:</label>
@@ -65,9 +65,15 @@ export default {
   margin: auto 20rem;
 }
 .addButton {
-  margin-left: 82%;
+  margin: 0 10rem;
 }
 .error{
     color: red;
+}
+.whiteTable{
+  background-color: white;
+  opacity: 0.88;
+  border-radius: 1.5rem;
+  padding: 1rem;
 }
 </style>

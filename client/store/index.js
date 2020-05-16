@@ -36,7 +36,6 @@ export default new Vuex.Store({
       state.currentProduct = payload;
     },
     error(state, payload) {
-      console.log(payload);
       state.errMsg = payload.message;
     },
     cleanErrMsg(state) {
@@ -45,7 +44,7 @@ export default new Vuex.Store({
   },
   actions: {
     getProduct(context) {
-      return fetch('http://localhost:3000/product', {
+      return fetch('https://e-commerce-server-m96.herokuapp.com/product', {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -68,7 +67,7 @@ export default new Vuex.Store({
     },
 
     getAccessToken(context, payload) {
-      return fetch('http://localhost:3000/login', {
+      return fetch('https://e-commerce-server-m96.herokuapp.com/login', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -89,7 +88,7 @@ export default new Vuex.Store({
         });
     },
     toRegister(context, payload) {
-      return fetch('http://localhost:3000/register', {
+      return fetch('https://e-commerce-server-m96.herokuapp.com/register', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -110,7 +109,7 @@ export default new Vuex.Store({
         });
     },
     toAddProduct(context, payload) {
-      return fetch('http://localhost:3000/product', {
+      return fetch('https://e-commerce-server-m96.herokuapp.com/product', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -131,7 +130,7 @@ export default new Vuex.Store({
         });
     },
     deleteProduct(context, payload) {
-      return fetch(`http://localhost:3000/product/${payload.id}`, {
+      return fetch(`https://e-commerce-server-m96.herokuapp.com/product/${payload.id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -147,7 +146,7 @@ export default new Vuex.Store({
         });
     },
     getDataById(context, payload) {
-      return fetch(`http://localhost:3000/product/${payload.id}`, {
+      return fetch(`https://e-commerce-server-m96.herokuapp.com/product/${payload.id}`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
@@ -163,7 +162,7 @@ export default new Vuex.Store({
         });
     },
     updateProduct(context, payload) {
-      return fetch(`http://localhost:3000/product/${payload.id}`, {
+      return fetch(`https://e-commerce-server-m96.herokuapp.com/product/${payload.id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',

@@ -1,6 +1,6 @@
 <template>
   <div id="app" class="container">
-    <h1 class="brand">M96</h1>
+    <h1 class="brand">M96 CMS</h1>
     <navbar id="nav" v-if="this.$store.state.isLoggedIn" />
     <router-view></router-view>
   </div>
@@ -37,6 +37,8 @@ export default {
   text-align: center;
   font-family: 'Cantata One', serif;
   font-weight: 700px;
+  background-color: floralwhite;
+  border-radius: 0 0 2rem 2rem;
 }
 
 #nav {

@@ -8,7 +8,6 @@ module.exports = (err,req,res,next) => {
         errorCode = 'VALIDATION_ERROR'
         message = err.errObj
     }else if(err.name === 'Invalid Email/Password'){
-        console.log("ini error handler");
         statusCode = 400
         errorCode = 'INVALID_EMAIL_OR_PASSWORD'
         message = 'Invalid Email/Password'
@@ -26,6 +25,5 @@ module.exports = (err,req,res,next) => {
         message = err.name
     }
 
-    // console.log(statusCode,errorCode,message);
     res.status(statusCode).json({errorCode, message})
 }

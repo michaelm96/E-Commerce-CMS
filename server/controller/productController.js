@@ -40,7 +40,6 @@ class ProductController {
             stock
         })
             .then(product => {
-                console.log(product);
                 res.status(201).json(product)
             })
             .catch(err => {

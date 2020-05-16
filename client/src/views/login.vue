@@ -3,10 +3,10 @@
     <div>
       <b-nav tabs>
         <b-nav-item active>
-          <router-link to="/login">Login</router-link>
+          <router-link to="/login" class="log">Login</router-link>
         </b-nav-item>
-        <b-nav-item>
-          <router-link to="/register">Register</router-link>
+        <b-nav-item class="registerTitle">
+          <router-link to="/register" class="reg">Register</router-link>
         </b-nav-item>
       </b-nav>
     </div>
@@ -24,3 +24,17 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+  .registerTitle{
+    background-color: grey;
+  }
+  .reg{
+    color: white;
+    text-decoration: none;
+  }
+  .log{
+    color: black;
+    text-decoration: none;
+  }
+</style>

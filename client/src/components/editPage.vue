@@ -69,7 +69,7 @@ export default {
   margin: auto 20rem;
 }
 .editButton {
-  margin-left: 82%;
+  margin: 0 10rem;
 }
 .error{
     color: red;

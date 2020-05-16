@@ -1,6 +1,6 @@
 <template>
   <div class="nav">
-    <b-sidebar id="sidebar-1" title="M96" shadow>
+    <b-sidebar class="bgColor" id="sidebar-1" title="M96" shadow>
         <div class="listRoute">
             <router-link to="/add">Add</router-link>
             <hr>
@@ -56,8 +56,7 @@ export default {
     margin-left: 1rem;
     text-decoration: none;
 }
-b-sidebar[title]{
-  font-family: 'Cantata One', serif;
-  font-weight: 700px;
+#sidebar-1{
+  background-color: red;
 }
 </style>
