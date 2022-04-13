@@ -5,6 +5,9 @@ Creating ecommerce-cms
 * RESTful endpoint for E-commerce-Cms CRUD operation
 * JSON formatted response
 
+## URL
+https://e-commerce-m96-cms.web.app/
+
 ## RESTful endpoints
 ### POST /register
 
